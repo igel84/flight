@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Airport:
+  = @transfer.airport_id
+%p
+  %b Day:
+  = @transfer.day
+%p
+  %b Voyage:
+  = @transfer.voyage_id
+%p
+  %b Crash at:
+  = @transfer.crash_at
+%p
+  %b Arriving at:
+  = @transfer.arriving_at
+
+= link_to 'Edit', edit_transfer_path(@transfer)
+\|
+= link_to 'Back', transfers_path

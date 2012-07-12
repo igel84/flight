@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  airport_id: 1
+  day: 2012-07-13 00:58:24
+  voyage_id: 1
+  crash_at: 2012-07-13 00:58:24
+  arriving_at: 2012-07-13 00:58:24
+
+two:
+  airport_id: 1
+  day: 2012-07-13 00:58:24
+  voyage_id: 1
+  crash_at: 2012-07-13 00:58:24
+  arriving_at: 2012-07-13 00:58:24

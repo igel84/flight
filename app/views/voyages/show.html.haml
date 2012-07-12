@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Airpot from:
+  = @voyage.airpot_from
+%p
+  %b Airport to:
+  = @voyage.airport_to
+%p
+  %b Price:
+  = @voyage.price
+%p
+  %b Crash at:
+  = @voyage.crash_at
+%p
+  %b Arriving at:
+  = @voyage.arriving_at
+%p
+  %b Time:
+  = @voyage.time
+
+= link_to 'Edit', edit_voyage_path(@voyage)
+\|
+= link_to 'Back', voyages_path

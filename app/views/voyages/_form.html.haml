@@ -1,0 +1,30 @@
+= form_for @voyage do |f|
+  -if @voyage.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@voyage.errors.count, "error")} prohibited this voyage from being saved:"
+      %ul
+        - @voyage.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.hidden_field :airpot_from
+    = f.label :airpot_from
+    = autocomplete_field_tag :nation_name, '', autocomplete_nation_name_voyages_path, id_element: '#airpot_from'   
+  .field
+    = f.hidden_field :airport_to
+    = f.label :airport_to
+    = autocomplete_field_tag :nation_name, '', autocomplete_nation_name_voyages_path, id_element: '#airpot_from'   
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :crash_at
+    = f.datetime_select :crash_at, class: 'datepicker'
+  .field
+    = f.label :arriving_at
+    = f.datetime_select :arriving_at
+  .field
+    = f.label :day
+    = f.time_select :day
+  .actions
+    = f.submit 'Save'

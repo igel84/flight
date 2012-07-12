@@ -1,0 +1,27 @@
+%h1 Listing transfers
+
+%table
+  %tr
+    %th Airport
+    %th Day
+    %th Voyage
+    %th Crash at
+    %th Arriving at
+    %th
+    %th
+    %th
+
+  - @transfers.each do |transfer|
+    %tr
+      %td= transfer.airport_id
+      %td= transfer.day
+      %td= transfer.voyage_id
+      %td= transfer.crash_at
+      %td= transfer.arriving_at
+      %td= link_to 'Show', transfer
+      %td= link_to 'Edit', edit_transfer_path(transfer)
+      %td= link_to 'Destroy', transfer, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Transfer', new_transfer_path

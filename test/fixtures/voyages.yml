@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  airpot_from: 1
+  airport_to: 1
+  price: 9.99
+  crash_at: 2012-07-13 00:40:07
+  arriving_at: 2012-07-13 00:40:07
+  time: 2012-07-13 00:40:07
+
+two:
+  airpot_from: 1
+  airport_to: 1
+  price: 9.99
+  crash_at: 2012-07-13 00:40:07
+  arriving_at: 2012-07-13 00:40:07
+  time: 2012-07-13 00:40:07

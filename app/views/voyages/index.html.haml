@@ -1,0 +1,29 @@
+%h1 Listing voyages
+
+%table
+  %tr
+    %th Airpot from
+    %th Airport to
+    %th Price
+    %th Crash at
+    %th Arriving at
+    %th Time
+    %th
+    %th
+    %th
+
+  - @voyages.each do |voyage|
+    %tr
+      %td= voyage.airpot_from
+      %td= voyage.airport_to
+      %td= voyage.price
+      %td= voyage.crash_at
+      %td= voyage.arriving_at
+      %td= voyage.time
+      %td= link_to 'Show', voyage
+      %td= link_to 'Edit', edit_voyage_path(voyage)
+      %td= link_to 'Destroy', voyage, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Voyage', new_voyage_path
