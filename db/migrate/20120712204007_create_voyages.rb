@@ -1,12 +1,12 @@
 class CreateVoyages < ActiveRecord::Migration
   def change
     create_table :voyages do |t|
-      t.integer :airpot_from
-      t.integer :airport_to
+      t.integer :airport_from_id
+      t.integer :airport_to_id
       t.decimal :price, precision: 8, scale: 2
       t.datetime :crash_at
       t.datetime :arriving_at
-      t.datetime :day
+      t.time :day
       t.integer :transfer_count
 
       t.timestamps

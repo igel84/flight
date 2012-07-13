@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 gem 'rails', '3.2.3'
 
-gem 'sqlite3'
-#gem 'mysql2'
+#gem 'sqlite3'
+gem 'mysql2'
 gem 'haml-rails'
 gem 'russian'
 gem 'execjs'
@@ -24,6 +24,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'rails3-jquery-autocomplete'
+gem 'twitter_bootstrap_form_for'
 
 gem 'unicorn'
 

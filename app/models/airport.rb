@@ -7,8 +7,7 @@ class Airport < ActiveRecord::Base
   scope :find_by_city, lambda{ |name| {:include => :city, :conditions => ["cities.name LIKE ?", "#{name}%"]} }
   
   def info
-  	city_name = self.city.name
-  	return self.name # "#{self.name} - #{self.city.name}" #+ ' - ' + self.city.nation.name
+  	"#{self.name} : #{self.city.name} : #{self.city.nation.name}"
   end
 
 end

@@ -2,10 +2,10 @@
 
 %p
   %b Airpot from:
-  = @voyage.airpot_from
+  = @voyage.airport_from.info
 %p
   %b Airport to:
-  = @voyage.airport_to
+  = @voyage.airport_to.info
 %p
   %b Price:
   = @voyage.price
@@ -16,8 +16,8 @@
   %b Arriving at:
   = @voyage.arriving_at
 %p
-  %b Time:
-  = @voyage.time
+  %b Day:
+  = @voyage.day.strftime("%H:%M:%S")
 
 = link_to 'Edit', edit_voyage_path(@voyage)
 \|

@@ -2,7 +2,7 @@ Flight::Application.routes.draw do
   resources :transfers
 
   resources :voyages do
-    get :autocomplete_nation_name, :on => :collection
+    get :autocomplete_airport_name, :on => :collection
   end
 
   # The priority is based upon order of creation:

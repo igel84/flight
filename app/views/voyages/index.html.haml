@@ -14,12 +14,12 @@
 
   - @voyages.each do |voyage|
     %tr
-      %td= voyage.airpot_from
+      %td= voyage.airport_from
       %td= voyage.airport_to
       %td= voyage.price
       %td= voyage.crash_at
       %td= voyage.arriving_at
-      %td= voyage.time
+      %td= voyage.day
       %td= link_to 'Show', voyage
       %td= link_to 'Edit', edit_voyage_path(voyage)
       %td= link_to 'Destroy', voyage, :confirm => 'Are you sure?', :method => :delete

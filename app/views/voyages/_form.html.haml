@@ -1,30 +1,29 @@
-= form_for @voyage do |f|
-  -if @voyage.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@voyage.errors.count, "error")} prohibited this voyage from being saved:"
-      %ul
-        - @voyage.errors.full_messages.each do |msg|
-          %li= msg
+:css
+  label {display:inline-block;width:180px;float:left;padding-top:3px;text-align:right;}
+  fieldset input[type="text"] {margin-left:10px;}
+  fieldset input[type="text"] {width:150px;}
+  fieldset input#airport_name_to, fieldset input#airport_name_from {width:200px;}
+= twitter_bootstrap_form_for @voyage, html: { class: 'well' } do |f|
+  = f.inputs 'Перелет', :class => 'flight' do
+    -if @voyage.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@voyage.errors.count, "error")} prohibited this voyage from being saved:"
+        %ul
+          - @voyage.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.hidden_field :airpot_from
-    = f.label :airpot_from
-    = autocomplete_field_tag :nation_name, '', autocomplete_nation_name_voyages_path, id_element: '#airpot_from'   
-  .field
-    = f.hidden_field :airport_to
-    = f.label :airport_to
-    = autocomplete_field_tag :nation_name, '', autocomplete_nation_name_voyages_path, id_element: '#airpot_from'   
-  .field
-    = f.label :price
-    = f.text_field :price
-  .field
-    = f.label :crash_at
-    = f.datetime_select :crash_at, class: 'datepicker'
-  .field
-    = f.label :arriving_at
-    = f.datetime_select :arriving_at
-  .field
-    = f.label :day
-    = f.time_select :day
-  .actions
-    = f.submit 'Save'
+    = f.hidden_field :airport_from_id
+    %label Аэропорт отправления
+    = autocomplete_field_tag :airport_name_from, @voyage.airport_from.try(:info) || '', autocomplete_airport_name_voyages_path, id_element: '#voyage_airport_from_id', class: 'airport' 
+    = f.hidden_field :airport_to_id
+    %br/
+    %label Аэропорт прибытия
+    = autocomplete_field_tag :airport_name_to, @voyage.airport_to.try(:info) || '', autocomplete_airport_name_voyages_path, id_element: '#voyage_airport_to_id', class: 'airport'
+    = f.text_field :price, 'Стоимость', :class => 'medium', :add_on => :append do
+      %span.add-on руб.
+    = f.text_field :crash_at, 'Вылет', :class => 'datetime-picker'
+    = f.text_field :arriving_at, 'Прилет', :class => 'datetime-picker'
+    =# f.text_field :day, 'Время в пути', :class => 'time-picker'
+    = f.actions do
+      = f.submit 'Сохранить', class: 'btn btn-primary'
+      = button_tag  'Отменить', :type => 'reset', :class => 'btn'

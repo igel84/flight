@@ -1,6 +1,8 @@
 class VoyagesController < ApplicationController
 
-  autocomplete :nation, :name, full: true
+  autocomplete :airport, :name, full: true, full_model: true, display_value: 'info'
+
+  before_filter :edit_day, only: [:create, :update]
 
   # GET /voyages
   # GET /voyages.json
@@ -83,4 +85,9 @@ class VoyagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def edit_day
+      params[:voyage][:day] = params[:voyage][:arriving_at].to_time - params[:voyage][:crash_at].to_time
+    end
 end
